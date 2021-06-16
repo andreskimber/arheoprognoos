@@ -87,7 +87,7 @@ knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
     - Joonistatud kuju muutmiseks vali joonistamise ikooni kõrval *Vertex tool*. 
     - Kuju kustutamiseks vali ala (redigeerimine peab olema sisselülitatud) tööriistaga *Select features by area*. Seejärel muutub punane prügikasti ikoon värviliseks ja sellele klikkides või *Delete* klahviga saab ala kustutada. 
 
-```{r select_tools, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap="Select tööriistad"}
+```{r select_tools, echo=F, fig.show='hold', fig.align='center', out.width= "30%", fig.cap="Select tööriistad"}
 knitr::include_graphics(here::here("imgs", "selection_tools.PNG"))
 ```
 
