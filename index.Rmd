@@ -42,7 +42,7 @@ knitr::include_graphics(here::here("imgs", "change_language.gif"))
 Kuna prognoos käsitleb Eesti ala, siis tuleb valida ka Eesti koordinaatsüsteem:
 - Ülevalt servast menüüst *Settings → Options → CRS (Coordinate Reference System)*.
 - *CRS for Projects* all vali *Use a default CRS*, kliki rippmenüü kõrval ikoonil ja kirjuta seal otsinguse *Estonian Coordinate System 1997*. Vajuta sellele otsingu tulemusele ning menüü alumises servas *OK*. Tee sama *CRS for Layers* juures. 
-- Salvesta QGIS projekt valides ülevalt vasakult *Project → Save*. Ära unusta ka töö käigus aeg-ajalt salvestada!
+- Sulge QGIS ja ava uuesti. All paremas nurgas peaks olema nüüd kirjas *EPSG: 3301*.
 
 ```{r defaultcrs, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Vaikimisi koordinaatsüsteemi sätestamine."}
 knitr::include_graphics(here::here("imgs", "default_crs.gif"))
@@ -64,10 +64,10 @@ Sulge QGIS.
 
 1. Tee C: kettale kaust *arheoloogia_prognoos*
     - Kui pole juurdepääsu C: kettale, siis tee töölauale lihtsalt otsetee, mille asukohaks kirjuta lihtsalt *C:*
-    - Kopeeri sinna kaustast *V:\ARHEOLOOGIA\15 GIS* QGISi projekti põhi *arheotundlikud_alad_alus.qgz*
-    - Kopeeri sinna kaustast *V:\ARHEOLOOGIA\15 GIS\data* andmete kiht *arheoloogia_andmed.gpkg*.
-    - Kopeeri sinna kaustast *V:\ARHEOLOOGIA\15 GIS\data* arheoloogiatundlike alade kihi põhi *arheotundlikud_alad.gpkg*. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt *arheotundlikud_alad_jarva.gpkg*. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
-2. Ava QGIS, klikkides töölaual *QGIS 3.16* kaustas *QGIS Desktop 3.16.3 with GRASS 7.8.5*. Täpsed versiooninumbrid võivad pisut erineda. 
+    - Kopeeri sinna kaustast *V:/ARHEOLOOGIA/15 GIS* QGISi projekti põhi *arheotundlikud_alad_alus.qgz*
+    - Kopeeri sinna kaustast *V:/ARHEOLOOGIA/15 GIS/data* andmete kiht *arheoloogia_andmed.gpkg*.
+    - Kopeeri sinna kaustast *V:/ARHEOLOOGIA/15 GIS/data* arheoloogiatundlike alade kihi põhi *arheotundlikud_alad.gpkg*. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt *arheotundlikud_alad_jarva.gpkg*. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
+2. Ava QGISi projekt, klikkides kihil *arheotundlikud_alad_alus.qgz* 
 3. Ava andmete kiht *arheoloogia_andmed.gpkg*.
     - Lohista see enda C: ketta kaustast QGISi peaaknasse.
     - Avanenud aknas kliki *Select All* ja tee linnuke *Add layers to a group* ette. Nüüd avanevad kõik kihid.
@@ -84,6 +84,13 @@ knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
     - Tee kiht valla nimega kiht *arheotundlikud_alad_jarva.gpkg* redigeeritavaks. Kliki kihtide paneelil selllel kihil ning vajuta üleval tööriista ribal kollasele pliiatsile (või ülevalt menüüst *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali rohelise laiguga ikoon *Add polygon feature*. Nüüd saad kaardile alasid märkida.
     - Joonistamiseks kliki kaardiaknas. Ala lõpetamiseks tee parempoolne klikk. Avanenud hüpikaknas vali drop-down menüüst sobivad väärtused.
     - Salvesta aeg-ajalt kihis tehtud muudatused. Selleks vajuta tööriistaribal kollase pliiatsi kõrval disketina kujutatud salvestamise ikoonile (*Save Layer*). Redigeerimise saad välja lülitada vajutades kollasel pliiatsil.
+    - Joonistatud kuju muutmiseks vali joonistamise ikooni kõrval *Vertex tool*. 
+    - Kuju kustutamiseks vali ala (redigeerimine peab olema sisselülitatud) tööriistaga *Select features by area*. Seejärel muutub punane prügikasti ikoon värviliseks ja sellele klikkides või *Delete* klahviga saab ala kustutada. 
+
+```{r select_tools, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap="Select tööriistad"}
+knitr::include_graphics(here::here("imgs", "selection_tools.PNG"))
+```
+
 6. Kui arvad, et kõik valla arheoloogiatundlikud alad on joonistatud, siis anna teada ja vaatame koos üle. 
 7. Pärast koos üle vaatamist kopeeri valla arheoloogiatundlike alade kiht kausta *V:\ARHEOLOOGIA\15 GIS\data\arheotundlikud_alad_valdadena* . Võid võtta käsile uue valla. 
 
@@ -114,8 +121,8 @@ WMS ehk Web Map Service on teenus, mille kaudu pääseb paljudele kaardikihtidel
 
 Ajaloolised
 
-- Verstakaart
-- Rücker/Schmidt
+- Verstakaart - legende näeb [Maa-ameti ajalooliste kaartide lehelt](https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html)
+- Rücker/Schmidt - 19. saj keskpaiku koostatud väikese mõõtkavaline kaart, mis katab kogu eesti
 - kihelkonnad kuni 1917
 - mõisad 1917
 
@@ -132,6 +139,17 @@ Vajadusel saad lisada täiendavaid WMS kihte
 - *Layer → Add layer → Add WMS/WMTS layer*
 - vali sobiv teenus ja kliki *Connect*, vali kiht ja seejärel *Add*. Sulge aken.
 - Nüüd on peaaknas näha valitud kiht. 
+
+
+<!-- # Alade märkimise põhimõtted ja protsess  -->
+
+<!-- Kõigepealt vaatad Rückeri kaarti ja verstakaarti koos TÜ andmebaasiga  -->
+
+<!-- # Kujude muutmine  -->
+
+<!-- Joonistatud alasid võib olla vajadus muuta ja kustutada. -->
+
+
 
 <!-- ## Kaardi kujundamine ja eksportimine -->
 
