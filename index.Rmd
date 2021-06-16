@@ -17,15 +17,13 @@ output:
 
 # Sissejuhatus
 
-Juhend annab ülevaate geoinfosüsteemi QGIS mõningatest põhilistest funktsioonidest, mida on vaja kohalike omavalitsuste üldplaneeringute jaoks arheoloogiatundlike alade prognoosimiseks. Kõik ettepanekud juhendi ja harjutuste parendamiseks on teretulnud.
-
-Lae Moodle'isse ülesande *GIS praktikum* juurde harjutuste tulemusena valminud kaardid. **Tähtaeg 12.05.2021 23:59**.
+Juhend annab ülevaate geoinfosüsteemi QGIS mõningatest põhilistest funktsioonidest, mida on vaja kohalike omavalitsuste üldplaneeringute jaoks arheoloogiatundlike alade prognoosimiseks. Kõik ettepanekud juhendi parandamiseks on teretulnud.
 
 QGISil on alati kaks hetkeversioon: stabiilne *Long term release* ja uusimate võimalustega *Latest release*. Kuna *Latest release* pidevalt uueneb, siis on kursusel lihtsuse huvides kasutusel *Long term release*, milleks hetkel 3.16. Väga suuri erinevusi nende versioonide vahel ei ole. Kel huvi, võib vaadata ka [väljalaske graafikut](https://qgis.org/en/site/getinvolved/development/roadmap.html#release).
 
 IT abi peaks olema kõigile QGISi paigaldanud. Kui ei ole, siis tegeleme sellega kohe. Kui tahate aga isiklikusse arvutisse seda installida, siis saate QGISi alla laadida [ametlikult kodulehelt](https://qgis.org/en/site/forusers/download.html), valides enda arvuti operatsioonisüsteemile sobiva variandi. Windowsi jaoks *QGIS Standalone Installer Version 3.16 (64 bit)* ja macOSi jaoks *QGIS macOS Installer Version 3.10*. Kui allalaadimine on lõppenud, ava fail ning installi see nagu iga teine programm. Kasutada vaikimisi valikuid.
 
-```{r qgis_3.1, echo=F, fig.show='hold', fig.align='center', out.width= "100%"}
+```{r qgis_3.1, echo=F, fig.show='hold', fig.align='center', out.width= "50%"}
 knitr::include_graphics(here::here("imgs", "qgis_3.16.png"))
 ```
 
@@ -50,6 +48,7 @@ Kuna prognoos käsitleb Eesti ala, siis tuleb valida ka Eesti koordinaatsüsteem
 knitr::include_graphics(here::here("imgs", "default_crs.gif"))
 ```
 
+## Kasutajaliides
 
 Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken *Layers*, kus saab kihte välja ja sisse lülitada ning kui on avatud rohkem kui üks kiht, saab hiirega tõstes muuta nende järjekorda. Kihtide järjekord on oluline, kuna alumised kihid ei pruugi pealmiste alt välja paista.
 
@@ -59,23 +58,22 @@ Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire v
 
 Sulge QGIS.
 
-
-
 # Tööprotsess
 
 Üldiselt tuleb võtta V: kettalt QGISi põhi, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale. Vaatame need koos üle. Seejärel kopeerid valla arheoloogiatundlike alade kihi V: kettale.   
 
-1. Tee C: kettale kaust **arheoloogia_prognoos**
-    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS** QGISi projekti põhi **arheotundlikud_alad_alus.qgz**
-    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** andmete kiht **arheoloogia_andmed.gpkg**.
-    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** arheoloogiatundlike alade kihi põhi **arheotundlikud_alad.gpkg**. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt **arheotundlikud_alad_jarva.gpkg**. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
-2. Ava QGIS, klikkides töölaual **QGIS 3.16** kaustas **QGIS Desktop 3.16.3 with GRASS 7.8.5**
-3. Ava andmete kiht **arheoloogia_andmed.gpkg**.
+1. Tee C: kettale kaust *arheoloogia_prognoos*
+    - Kui pole juurdepääsu C: kettale, siis tee töölauale lihtsalt otsetee, mille asukohaks kirjuta lihtsalt *C:*
+    - Kopeeri sinna kaustast *V:\ARHEOLOOGIA\15 GIS* QGISi projekti põhi *arheotundlikud_alad_alus.qgz*
+    - Kopeeri sinna kaustast *V:\ARHEOLOOGIA\15 GIS\data* andmete kiht *arheoloogia_andmed.gpkg*.
+    - Kopeeri sinna kaustast *V:\ARHEOLOOGIA\15 GIS\data* arheoloogiatundlike alade kihi põhi *arheotundlikud_alad.gpkg*. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt *arheotundlikud_alad_jarva.gpkg*. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
+2. Ava QGIS, klikkides töölaual *QGIS 3.16* kaustas *QGIS Desktop 3.16.3 with GRASS 7.8.5*. Täpsed versiooninumbrid võivad pisut erineda. 
+3. Ava andmete kiht *arheoloogia_andmed.gpkg*.
     - Lohista see enda C: ketta kaustast QGISi peaaknasse.
-    - Avanenud aknas kliki **Select All** ja tee linnuke **Add layers to a group** ette. Nüüd avanevad kõik kihid.
+    - Avanenud aknas kliki *Select All* ja tee linnuke *Add layers to a group* ette. Nüüd avanevad kõik kihid.
 4. Too esile vald, millega tegelema hakkad.
-    - Lülita välja kõik andmete kihid. Kihtide aknas **arheoloogia_andmed** peal parempoolne klikk -> **Uncheck and all its children.
-    - Lülita sisse kiht **kov_piirid** -> kihil topeltklikk -> vasakult **Symbology** -> topeltklikk **Uuritav** peal -> **Filter** juures "ONIMI" = 'Järva vald' asenda **Järva** selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'.
+    - Lülita välja kõik andmete kihid. Kihtide aknas *arheoloogia_andmed* peal parempoolne klikk -> *Uncheck and all its children.
+    - Lülita sisse kiht *kov_piirid* -> kihil topeltklikk -> vasakult *Symbology* -> topeltklikk *Uuritav* peal -> *Filter* juures "ONIMI" = 'Järva vald' asenda *Järva* selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'.
 
 ```{r kovhighlight, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Käsiloleva valla esile toomine"}
 knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
@@ -83,15 +81,15 @@ knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
 
 5. Joonista arheoloogiatundlikud alad.
     - Liigu kaardil käsiloleva valla juurde ja lülita sisse kõik kihid. 
-    - Tee kiht valla nimega kiht **arheotundlikud_alad_jarva.gpkg** redigeeritavaks. Kliki kihtide paneelil selllel kihil ning vajuta üleval tööriista ribal kollasele pliiatsile (või ülevalt menüüst *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali rohelise laiguga ikoon *Add polygon feature*. Nüüd saad kaardile alasid märkida.
+    - Tee kiht valla nimega kiht *arheotundlikud_alad_jarva.gpkg* redigeeritavaks. Kliki kihtide paneelil selllel kihil ning vajuta üleval tööriista ribal kollasele pliiatsile (või ülevalt menüüst *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali rohelise laiguga ikoon *Add polygon feature*. Nüüd saad kaardile alasid märkida.
     - Joonistamiseks kliki kaardiaknas. Ala lõpetamiseks tee parempoolne klikk. Avanenud hüpikaknas vali drop-down menüüst sobivad väärtused.
     - Salvesta aeg-ajalt kihis tehtud muudatused. Selleks vajuta tööriistaribal kollase pliiatsi kõrval disketina kujutatud salvestamise ikoonile (*Save Layer*). Redigeerimise saad välja lülitada vajutades kollasel pliiatsil.
 6. Kui arvad, et kõik valla arheoloogiatundlikud alad on joonistatud, siis anna teada ja vaatame koos üle. 
-7. Pärast koos üle vaatamist kopeeri valla arheoloogiatundlike alade kiht kausta **V:\ARHEOLOOGIA\15 GIS\data\arheotundlikud_alad_valdadena**. Võid võtta käsile uue valla. 
+7. Pärast koos üle vaatamist kopeeri valla arheoloogiatundlike alade kiht kausta *V:\ARHEOLOOGIA\15 GIS\data\arheotundlikud_alad_valdadena* . Võid võtta käsile uue valla. 
 
 # Kasutatavad andmed
 
-*Kiht arheoloogia_andmed.gpkg*
+**Kiht arheoloogia_andmed.gpkg**
 
 Siia on koondatud sisuliselt kõik prognoosimiseks olulised ja meile kättesaadavad andmed. Kihtide atribuuttabelit saab vaadata tehes kihil paremkliki ja *Open Attribute Table*. Seal on kirjas, millised andmed on kihis olemas ja millised on nende atribuudid.
 
@@ -110,7 +108,9 @@ kiviaja_asulakohad - koondatud kiviaja asulate andmestik, mille panid kokku Kaar
 - muististe_liik - abikiht, arheoloogiatundlike alade kihis muististe liikide valimiseks. Võib ignoreerida seda.
 
 
-*WMS kihid*
+**WMS kihid**
+
+WMS ehk Web Map Service on teenus, mille kaudu pääseb paljudele kaardikihtidele ligi läbi interneti. Peamiselt kasutatakse aluskaartide jaoks. Siin kasutame Maa-ameti WMS teenuseid.
 
 Ajaloolised
 
@@ -127,129 +127,11 @@ Tänapäevased
 - põhikaart reljeefivarjutusega
 - värviline reljeefivarjutus
 
+Vajadusel saad lisada täiendavaid WMS kihte 
 
-<!-- **Lisa Maa-ameti WMS-teenusest taustaks kaart:** -->
-
-<!-- - *Layer → Add layer → Add WMS/WMTS layer*. -->
-<!-- - *New*. Seal *Name: Maaamet alus* ning URL juurde kopeeri aadress http://kaart.maaamet.ee/wms/alus? ja vajuta *OK*. Nüüd on paika pandud, millise Maa-ameti kaardiserveriga QGIS ühenduse loob. -->
-<!-- - Kliki *Connect* ja vali Põhikaardid alt 2 pohi_vv *Reljeefvarjutusega põhikaart* ning kliki *Add*. Sulge aken. -->
-<!-- - Nüüd on peaaknas näha tänapäevane põhikaart koos reljeefiga. Selleks et punktid kaardil paistaksid peab *Layers* paneelil olema kiht madara_prooviaugud kõige ülemine. Kihtide järjekorda saab vahetada hoides vasakpoolset hiire klahvi all. -->
-<!-- - Kaardil on Mädara linnus kõrgema alana prooviaukudest vahetult edelas seal, kus on märgitud kõrgus 45.3. Hetkeseis peaks välja nägema enam-vähem sama alloleva pildiga. -->
-
-
-<!-- ## Kaardi kujundamine ja eksportimine -->
-
-<!-- Kui kaardiaknas on loodud sobiv lahendus, siis ekspordi see kaardina. Kaardi tegemiseks:  -->
-
-<!-- - Ülevalt vasakult *Project → New Print Layout*. Anna sellele sobiv nimi. Näiteks *madara* -->
-<!-- - Avanenud aknas ülevalt *Add Item → Add Map*. Nüüd joonista akna valgele lehele nelinurk hoides all hiire vasakpoolset klahvi. QGIS-i peaaknas olev kaart kujutatakse sinna. Tee nelinurk sama suureks kui valge taust. -->
-<!-- - Säti kaarti nii et kõik vajalik oleks näha. Selleks vali *Edit → Move Content* või vajuta klaviatuuril *C*. Liiguta kaarti hiire vasakpoolset klahvi all hoides. Paremal servas *Item properties* alt saab valida kaardi mõõtkava (*Scale*), et kaarti suuremaks või väiksemaks teha. Jälgi, et näha oleksid kõik prooviaugud, linnuse asukoht ja ka pisut ümbrust.  -->
-<!-- - **Joonmõõtkava** lisamine *Add item → Add Scalebar* ning kliki kaardile. Avanenud aknas lihtsalt *OK*. Paremal *Item properties → Segments* saad muuta muuta mõõtkava pikkust. Vali *left 0* ja lisa paremale poole nii palju, kui soovid. *Fixed width* muudab mõõtkava ühe ühiku pikkust. *Style* rippmenüüst saad valida endale meelepärase stiili.  -->
-<!-- - **Põhjasuuna** lisamine. *Add item → Add North Arrow* ning kliki kaardile. Paiguta noole kast kaardi ühte ülemisse nurka. -->
-<!-- - **Enda nime ja Maa-ameti viite** lisamine. *Add Item → Add Label* ning kliki kaardile. Avanenud aknas OK. Paiguta tekkinud kast kaardi ühte nurka. Paremal *Item properties* all kirjuta enda nimi ning vajadusel viide Maa-ameti andmetele. Nt *Aluskaart: Maa-amet 2021*. -->
-<!-- <!-- - Sarnaselt eelmisele punktile lisa kaardile nimi. Näiteks *Kultuurimälestiste jaotumine omavalitsustes* --> -->
-<!-- <!-- - Lisa kaardile legend: --> -->
-<!-- <!--     - *Add Item → Add Legend* → kliki kaardil --> -->
-<!-- <!--     - Paremal *Legend Items* juures võta *Auto update* eest linnuke ära. --> -->
-<!-- <!--     - Kustuta legendi lahtris kõik kihid peale omavalitsuste kihi. Selleks kliki kihil ja lahti all punasel miinusmärgil. --> -->
-<!-- <!--     - Anna omavalitsuste kihile parem nimi tehes sel topeltkliki. Nimeks näiteks *Kultuurimälestisi* --> -->
-<!-- - Ekspordi kaart kursuse kausta. Üleval servas vasakul *Layout → Export as Image*. Pane sellele nimeks *harjutus_1_endaperekonnanimi*. Avanenud aknas Save. -->
-<!-- - Ava kaart kaustas ning vaata, kas kõik jäi õigesti. -->
-
-<!-- <!-- # Harjutus 1 --> -->
-
-<!-- <!-- Harjutuse eesmärk on avada kaardikihid ning teha tutvust kihielementide visualiseerimisega.  --> -->
-
-<!-- <!-- **Andmete avamine** --> -->
-
-<!-- <!-- - Ava Eesti maakondade kiht. --> -->
-<!-- <!--     - *Layer → Add layer → Add vector layer*. --> -->
-<!-- <!--     - Kliki *Vector Dataset(s)* juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast fail *maakond.gpkg* ja vajuta *Open*. Seejärel menüü all servas *Add* ja *Close*. --> -->
-<!-- <!--     - Nüüd on avatud kiht kõigi Eesti maakondade piirjoontega. --> -->
-<!-- <!-- - Ava muinsuskaitse all olevate kirikute kiht. Kõik samamoodi nagu eelmise kihiga, valida tuleb aga fail *kirikud.gpkg*. --> -->
-
-<!-- <!-- **Kihtide vaatamine ja kaardil liikumine** --> -->
-
-<!-- <!-- Kihtide paneelil *Layers* saab kihte välja ja sisse lülitada ning hiirega tõstes muuta nende järjekorda. Kihtide järjekord on oluline, kuna alumised kihid ei pruugi pealmiste alt välja paista. Jälgi, et kirikute kiht asetseks maakondade kihi peal.  --> -->
-
-<!-- <!-- Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui oled ei suuda kihti enam üles leida. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit! --> -->
-
-<!-- <!-- Kihtide atribuuttabelit saab vaadata tehes paremkliki ja *Open Attribute Table*. Seal on kirjas, millised andmed on kihis olemas ja millised on nende atribuudid. --> -->
-
-<!-- <!-- **Kihtide visualiseerimine** --> -->
-
-<!-- <!-- Selleks, et mõlemad kihid välja paistaksid peaksid need ülevalt alla olema järjekorras kirikud, maakonnad. Andmete visualiseerisemiseks on meil punktide puhul kasutada värv, kuju ja suurus. Joonte ja alade puhul piirdume üldiselt värvi ja suurusega. --> -->
-
-<!-- <!-- Muuda kihtide stiili nii et kirikud paistaksid selgelt välja ning maakonnad oleks ainult piirjooned. Lisa ka maakonnanimi. --> -->
-
-<!-- <!-- Sümbolite muutmiseks tee kihil topeltkliki ja vaata, et avanenud aknas oleks vasakul servas valitud *Symbology*. Avanenud menüüs saab punkt- ja joonobjektidele valida värvi ja suurus või laiust. Maakondadel vali *Fill* all *Simple fill* asemel *Outline: Simple line*. --> -->
-
-<!-- <!-- Lisa maakonnanimi valides samas menüüs vali vasakult *Labels* ning seal *No labels* asemel *Single labels*. *Value* alt vali *MNIMI* ja vajuta all paremal OK. --> -->
-
-<!-- <!-- ```{r harjutus1, echo=F, fig.align = 'center', fig.show='hold', out.width= "100%", fig.cap="Harjutus 1 tulemus."} --> -->
-<!-- <!-- knitr::include_graphics(here::here("imgs", "harjutus_1.png")) --> -->
-<!-- <!-- ``` --> -->
-
-
-<!-- # Harjutus 2  -->
-
-<!-- Harjutuse eesmärk on koostada kaart, mis näitab, kuidas jaotuvad omavalitsuste kaupa kogu Eestis muinsuskaitse all olevad kultuurimälestised. Selleks tuleb QGIS-i importida omavalitsuste kiht ning siduda see tabeliga, kus on kirjas kultuurimälestiste arvud kõigis omavalitsustes. Harjutuse tulemusena valminud kaarti nimetatakse koropleetkaardiks ehk kartogrammiks. -->
-<!-- Harjutuse tulemuseks peaks olema sarnane kaart siinsega. Värviskaala, mõõtkava ning arvud legendis ja omavalitsuste siltidel võivad erinevad vastavalt teie valikutele. -->
-
-<!-- ```{r harjutus2, echo=F, fig.show='hold', fig.align = 'center', out.width= "100%", fig.cap="Harjutus 2 tulemus."} -->
-<!-- knitr::include_graphics(here::here("imgs", "harjutus_2.png")) -->
-<!-- ``` -->
-
-
-<!-- Ava Exceli, Notepadi vms programmiga fail *kultuurimalestised.csv*. Nagu näha on tegu väga lihtsa andmestikuga, kus kirjas iga valla nimi, kultuurimälestiste arv selles ja ka kultuurmälestite arv ruutkilomeetri kohta. -->
-
-<!-- **Ava sama fail QGISis: ** -->
-
-<!-- - Kõigepealt lülita kihtide paneelis välja Mädara prooviaukude kiht ja aluskaart. Neid kihte pole vaja selles harjutuses näha. -->
-<!-- - Seejärel *Layer → Add layer → Add delimited text layer* -->
-<!-- - Kliki *File Name* juures sirvimise ikoonil (kolm punkti). Vali kaustast fail *kultuurimalestised.csv* -->
-<!-- - *File format* juures vali *Custom delimiters* ning tee linnuke *Semicolon* ette. -->
-<!-- - *Record and Fields Options juures* tee linnuke *First record has field names* ette. See on vajalik, et QGIS arvestaks tabeli esimest rida kui tulpade pealkirju. -->
-<!-- - *Geometry definition* vali *No geometry (attribute only table)*. See tuleb valida kuna antud tabelis ei ole koordinaate. -->
-<!-- - Kas akna all servas *Sample data* juures on andmed kujutatud eraldi tulpades ja täpitähed olemas? Kui täpitähti pole vali üleval *Encoding* rippmenüüst *ISO-8859-15*, mis on ametlik eesti keele kodeering. -->
-<!-- - *Add → Close*. Nagu näha ei ilmunud QGISi peaaknasse midagi, kuna tegu pole ruumiandmete kihiga, vaid lihtsalt tabeliga. -->
-<!-- - Vaata kihtide paneelis selle atribuuttabelit. Nagu näha on see täpselt sama, mis Excelis.  -->
-
-<!-- ```{r tabeliavamine, echo=F, fig.show='hold', fig.align = 'center', out.width= "120%", fig.cap="Kultuurimälestiste tabeli avamine. Jälgi, et kõik valikud oleks samamoodi! Faili asukoht muidugi sõltub igaühe arvutist."} -->
-<!-- knitr::include_graphics(here::here("imgs", "kultmal_avamine.PNG")) -->
-<!-- ```  -->
-
-<!-- **Ühenda kultuurimälestiste tabel omavalitsuste kihiga: ** -->
-
-<!-- - Ava omavalitsuste kiht *omavalitsus.gpkg*  -->
-<!--     - *Layer → Add layer → Add vector layer*. -->
-<!--     - Kliki *Vector Dataset(s)* juures sirvimise ikoonil (kolm punkti). Vali andmete kaustast fail *omavalitsus.gpkg* ja vajuta *Open*. Seejärel menüü all servas *Add* ja *Close*. -->
-<!--         - alternatiivina võid omavalitsuste kihi avada lihtsalt lohistades selle faili QGISi kaardiaknasse. -->
-<!--     - Nüüd on avatud kiht kõigi Eesti omavalitsuste piirjoontega. Nende kõikide nägemiseks tee kihil parempoolne klikk ja vali *Zoom to layer*. Kihti avades annab QGIS sellele alati mingi suvalise värvi.  -->
-<!-- - Omavalitsuste kihil topeltklikk → vasakul servas *Joins* → all servas roheline plussmärk. -->
-<!--     - *Join layer:* kultuurimalestised -->
-<!--     - *Join field:* Vald -->
-<!--     - *Target field:* ONIMI. Siin määrame, milliste tulpade põhjal tuleks tabel ja maakonnad kokku panna -->
-<!--     - *Joined fields* ette linnuke ja ka linnuke ainult *Mälestisi* ja *Mäl/km2* ette, kuna me ei soovi tabelist võtta ka valdade nimesid, mis on omavalitsuste kihis juba olemas. -->
-<!--     - *Custom Field Name Prefix* ette linnuke ja kustuta sealses lahtris olev tekst.   -->
-<!--     - *OK* -->
-<!--     - Vaata uuesti valdade kihi atribuuttabelit, et näha, kas igale vallale said lisatud kultuurimälestiste andmed. -->
-
-<!-- ```{r tablejoin, echo=F, fig.show='hold', fig.align = 'center', out.width= "75%", fig.cap="Omavalitsuste kihi atribuuttabel pärast kultuurimälestiste tabeliga ühendamist"} -->
-<!-- knitr::include_graphics(here::here("imgs", "vald_join_table.png")) -->
-<!-- ``` -->
-
-<!-- **Värvi omavalitsused vastavalt kultuurimälestiste arvule** -->
-
-<!-- - Omavalitsuste kihil paremklikk *→ Properties → Symbology* -->
-<!-- - *Simple line* asemel vali uuesti *Symbol layer type* juurest *Simple fill* -->
-<!-- - Menüü ülaservast *Single symbol* asemel *Graduated:* -->
-<!--     - *Value* juures vali *Mälestisi* või *Mäl/km2*. See määrab, millise tulba väärtuste põhjal maakonnad värvitakse. -->
-<!--     - *Color ramp:* vali rippmenüüst värviskaala, millel on ühtlane 2–3 tooni üleminek. Näiteks helekollasest tumeroheliseks. Katseta erinevate värviskaaladega. -->
-<!--     - Kliki *Classify*. Proovi ka erinevate jaotumistega (nt *Equal interval*, *Pretty breaks* ja *Natural breaks*) ja klasside hulgaga (*Classes*). Näiteks mälestiste tulba põhjal annal *Natural breaks* ja viis klassi ilusa tulemuse. Jälgi, et kõik või enamik maakondi ei oleks ühte värvi, kuna taoline kaart ei pruugi olla kuigi informatiivne. -->
-<!--     - *OK* -->
-<!-- - Nüüd on kõik omavalitsused värvitud valitud värviskaalaga vastavalt sellele, kui palju on neis kultuurimälestisi. -->
-
+- *Layer → Add layer → Add WMS/WMTS layer*
+- vali sobiv teenus ja kliki *Connect*, vali kiht ja seejärel *Add*. Sulge aken.
+- Nüüd on peaaknas näha valitud kiht. 
 
 <!-- ## Kaardi kujundamine ja eksportimine -->
 
@@ -268,151 +150,7 @@ Tänapäevased
 <!--     - Kustuta legendi lahtris kõik kihid peale omavalitsuste kihi. Selleks kliki ebavajalikul kihil ja seejärel all punasel miinusmärgil. -->
 <!-- - Anna omavalitsuste kihile parem nimi tehes sel topeltkliki. Nimeks näiteks *Kultuurimälestiste arv omavalitsustes* või *Kultuurimälestisi ruutkilomeetri kohta omavalitsustes*. -->
 <!-- - Ekspordi kaart kursuse kausta. Üleval servas vasakul *Layout → Export as Image*. Pane sellele nimeks *harjutus_2_endaperekonnanimi*. Avanenud aknas Save. -->
-<!-- - Ava kaart kaustas ning vaata, kas kõik jäi õigesti. -->
 
-
-<!-- # Harjutus 3 -->
-
-<!-- Eesmärk on luua kaart, mis näitab, millistes kihelkondades eelistatakse selgelt eitust "pole" ja millistest "ei ole". -->
-
-<!-- <!-- ## Avaldised (*expressions*) on tehted ja vormelid, mille abil hõlpsalt muuta atribuutide väärtusi, luua uusi (virtuaalseid) atribuute või kihte, andmetest alamhulki välja filtreerida, teha statistikat jne. Avaldiste abil saab andmeid QGISis mitmekülgsemalt analüüsida ning visualiseerida.   --> -->
-
-<!-- <!-- Avaldisi saab eeldefineeritud funktsioonide abil koostada mitmeks erinevaks otstarbeks, vaata ülevaadet [siit](https://docs.qgis.org/3.4/en/docs/user_manual/working_with_vector/expression.html#vector-expressions). Sealjuures saab sageli üht ja sama asja teha erineval moel. --> -->
-
-<!-- - Ava QGISis kihelkondade *shapefile* *kihelkonnad.shp* (EKI, Peeter Päll), -->
-<!-- - ava ka CSV-fail *eiole_pole_mk_props.csv*, mis sisaldab andmeid *ei ole* ja *pole* suhtelisest **sagedusest** [Eesti murrete korpuses](www.murre.ut.ee/mkweb). Avamine samamoodi nagu harjutuses 2 kultuurimälestiste faili puhul. Kodeering on on aga UTF-8, välju eraldab semikoolon, esimesel real on tulbanimed ning koordinaatide infot failis ei ole. -->
-<!-- - vaata, mõlema andmestiku atribuuttabelit, et mõista, milliste andmetega on tegemist. -->
-<!-- - Ühenda andmestik *eiole_pole_mk_props* kihiga *kihelkonnad* samamoodi nagu harjutuses 2. Mõlemast andmestikust vali tulp, kus on kolme tähega kirjas kihelkonnanimi. -->
-
-<!-- ```{r kihpole, echo =F, fig.align='center', fig.show='hold', fig.cap = "eiole/pole andmestiku ühendamine kihelkondadega", out.width="100%"} -->
-<!-- knitr::include_graphics(here::here("imgs", "kih_pole_yhendamine.gif")) -->
-<!-- ``` -->
-
-
-<!-- - Värvi kihelkonnad **reeglipõhiselt** nii et need, mille puhul *ei_ole* ja *pole* vahe on negatiivne (-0,5 või vähem), on sinised, ja need, mille vahe on positiivne (0,5 või suurem), on punased. Kihelkonnad, kust vastavaid andmeid pole värvi halliks. -->
-<!-- - kihelkondade kihil paremklikk *→ Properties → Symbology → Rule-based* -->
-<!-- - Lisa kolm reeglit, klikkides rohelisel plussmärgil -->
-<!--   - kui *ei_ole* väärtus miinus *pole* väärtus on positiivne (0,5 või suurem), siis on kihelkond punane, -->
-
-<!-- ```{r eiole, echo =F, fig.align='center', fig.show='hold', fig.cap = "eiole/pole andmestiku ühendamine kihelkondadega", out.width="100%"} -->
-<!-- knitr::include_graphics(here::here("imgs", "eiole.gif")) -->
-<!-- ``` -->
-
-<!--   - kui *ei_ole* väärtus miinus *pole* väärtus on negatiivne (-0,5 või vähem), siis on kihelkond sinine, -->
-<!--   - kui pole kumbagi (st andmeid pole) on kihelkond hall -->
-
-<!-- ```{r polemuu, echo =F, fig.align='center', fig.show='hold', fig.cap = "eiole/pole andmestiku ühendamine kihelkondadega", out.width="100%"} -->
-<!-- knitr::include_graphics(here::here("imgs", "polemuu.gif")) -->
-<!-- ``` -->
-
-<!-- Nüüd on kihelkonnad värvitu vastavalt sellele, kus eelistatakse eelkõige kasutada "pole" või "ei ole". Ekspordi kaart samal viisil nagu harjutuses 2. -->
-
-<!-- # Aluskaardid -->
-
-<!-- Nagu varasemates loengutes nägime on olemas rohkelt aluskaarte, mida erinevateks rakendustes kasutatakse. Neid saab kasuta QGISis läbi pistikprogrmammide ehk *Plugins* või WMS- ja WFS-teenuste. Vastavalt *web map service* ja *web feature service*. -->
-<!-- WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.maaamet.ee/xgis2/page/app/maainfo) olevaid kihte. Täpsemalt sellest [WMS teenuste lehel](https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html). Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid neid teha ei saa. -->
-
-<!-- **Lisa WMS-teenusest taustaks kaart:** -->
-
-<!-- -  *Layer → Add layer → Add WMS/WMTS layer*. -->
-<!-- - *New*. Seal *Name: Maaamet alus* ning URL juurde kopeeri aadress http://kaart.maaamet.ee/wms/alus? ja vajuta *OK*. Nüüd on paika pandud, millise Maa-ameti kaardiserveriga QGIS ühenduse loob. -->
-<!-- - Kliki *Connect* ja vali *138 MAANTEED* ning kliki *Add*. -->
-<!-- - Lisa veel üks ühendus. *New*. Seal kirjuta *Name:* lahtrisse *Maaamet orto ja reljeef* ning URL juurde kopeeri aadress https://kaart.maaamet.ee/wms/fotokaart ja vajuta *OK*. -->
-<!-- - Kliki *Connect* ja vali *21 vreljeef* ning kliki *Add*. Sulge aken. -->
-<!-- - Nüüd on peaaknas näha tänapäevane maanteed koos reljeefiga. Kui WMS kihid ei paista välja, siis muuda kihtide järjekorda. -->
-
-<!-- **Quickmap ja OSM** -->
-
-<!-- Lisa veebikaartide plugin. -->
-<!-- - Üleval servas *Plugins → Manage and Install Plugins*. Otsingusse kirjuta *Quickmap*. Vali *QuickMapSercives* ja installi see. Sulge aken. -->
-<!-- - Üleval servas *Web → QuickMapServices → OSM → OSM standard*. Nüüd on aluskaardiks OpenStreetMap. Proovi ka teisi kaarte. Nt Google. -->
-
-<!-- ## Andmete avamine -->
-
-<!-- Võid jätkata eelmise praktikumi QGIS projekti. Kihelkondade kiht on kujutab 1917. aasta seisu. Kihis võib olla mõningaid ebatäpsusi. Mälestiste kihis on kõik muinsuskaitse all olevad mälestised. Aladena tähistatud mälestistest on siin lihtsama käsitlemise huvides tehtud samuti punktid. Pärast avamist vaadake ka andmete atribuuttabeleid, et näha millist infot on nendega kaasas. Vorbuse uurimisala kasutame harjutuse käigus ja praege võib selle välja lülitada. -->
-
-<!-- ## Andmete valimine ja mõõtmine (käsitsi) -->
-
-<!-- Kihi valimise abil saame luua valikust uue kihi või muuta valiku omadusi. Hetkel vaatame käsitsi valimise variante. Kaardil objektide valimiseks kliki kihtide paneelis kihil, millest soovid valida. Objekte saab valida kaardil kuju joonistades või määrates väärtused, mille põhjal valik teha. Proovime mõlemat! Valitud objektid muutuvad kollaseks. -->
-
-<!-- ```{r selectiontools, echo=F, fig.show='hold', fig.align='center', out.width= "30%", fig.cap="Valimise tööriistad menüüribal"} -->
-<!-- knitr::include_graphics(here::here("imgs", "selection_tools.png")) -->
-<!-- ``` -->
-
-<!-- Vali kaardil kõik Saaremaa kihelkonnad ning salvesta need eraldi kihina tehes *paremklikk → Export → Save **Selected** Features As*. Formaadiks *Geopackage* ja vali sirvimise ikoonile klikkides kursuse kaustas andmete kaust. Anna kihile mõistlik nimi. Näiteks *kihelkonnad_saaremaa* või *saaremaa_kihelkonnad*. -->
-
-<!-- Vali kaardil Liivimaa kubermangu kihelkonnad. *Select Features By Value* ja kubermangu tulpa kirjuta "Liivimaa" *→ Select Features → Close*. Järgmistel kordadel vaatame ka keerulisemaid valikuid *Select Features By Expression* abil. Vali samamoodi kõik arheoloogia mälestised ja salvesta need eraldi kihina. Valiku tegemiseks vaata kihi atribuuttabelit. -->
-
-
-<!-- # Harjutus 3 -->
-
-<!-- Märkida tuleb vanalt topograafiliselt kaardilt uurimispiirkonna piires Tartust u 7 km kirdes asuva Vorbuse asula läheduses oleva Metsaküla küla suuremad teed ja talud, mida tänapäeval enam pole. Piirkonnas toimusid 1960.–70. aastate maaparandusega (uute põldude rajamisega) seoses mitmed ümberkorraldused. -->
-
-<!-- ```{r vorbuse, echo=F, fig.show='hold', fig.align='center', out.width= "80%", fig.cap="Vorbuse piirkonna talud ja teed, mida tänapäeval enam pole"} -->
-<!-- knitr::include_graphics(here::here("imgs", "vorbuse.jpeg")) -->
-<!-- ``` -->
-
-<!-- **Ava uurimisala** -->
-
-<!-- - Ava Vorbuse uurimisala kiht *vorbuse_uurimisala.gpkg* samamoodi nagu avasid vektorandmeid eelmistes harjutustes. -->
-<!-- - Lülita sisse Vorbuse uurimisala kiht ja liigu selle juurde (kihil parempoolne klikk → *Zoom to layer*) -->
-<!-- - Muuda kihti nii et näha oleks ainult selle piirjoon. Samamoodi nagu harjutuses 1 maakondadega. -->
-
-
-<!-- **Lisa Maa-ameti WMS-teenusest ajalooline topokaart ja tänapäevane põhikaart:** -->
-
-<!-- - *Layer → Add layer → Add WMS/WMTS layer*. -->
-<!-- - Avanenud aknas kliki *New*. Seal *Name*: Maaamet ajaloolised kaardid ning URL juurde kopeeri aadress *https://kaart.maaamet.ee/wms/ajalooline?* ja vajuta OK. -->
-<!-- - Kliki *Connect* ja vali *Ajalooline* alt *45 ew_25T Eesti topograafiline kaart 1:25000 (1923–1935)* ning seejärel *Add → Close*. -->
-<!-- - Lisa eelmise punktiga sarnaselt WMS-teenusest tänapäevane aluskaart: -->
-<!--   - Loo tänapäevaste kaartide jaoks uus ühendus *Maa-amet alus*. Loomisel kasuta URLi  *http://kaart.maaamet.ee/wms/alus?* -->
-<!-- - Vali rippmenüüst Maa-amet alus, kliki *Connect* ja vali *Põhikaardid* alt *2 pohi _vr2 Põhikaart*. -->
-<!-- - Vaata põgusalt, kuidas on märgitud talud ja teed ajaloolisel topokaardil ja tänapäevasel põhikaardil. -->
-<!-- - Aseta uurimisala kiht kõige pealmiseks kihiks, et see ei jääks WMS-teenuse kaartide alla. -->
-
-<!-- Tänapäevane põhikaart paistab alates mõõtkavast 1:22000. Kui mõõtkava on suurem, siis seda ei näidata. -->
-
-<!-- **Loo uued tühjad kihid talude ja teede märkimiseks** -->
-
-<!-- - Ülevalt menüüst *Layer → Create Layer → New Geopackage Layer* -->
-<!-- - Sirvimise ikoonile klikkides liigu seal kausta kursuse andmete kausta. Pane faili nimeks vorbuse_talud ning vajuta *Save*. -->
-<!-- - Vali *Geometry type: Point*. -->
-<!-- - Rippmenüüst koordinaatsüsteem *EPSG: 3301, Estonian Coordinate System 1997*. -->
-<!-- - Lisa kihile uus atribuutide väli. *New field* all *Name* järel kirjuta *nimi* ja kliki *Add to Fields List → OK*. -->
-<!-- - Nüüd on talude märkimiseks loodud tühi kiht, mis ilmus ka kihtide paneelile. Seda kihti paneelil sisse-välja lülitades ei juhtu hetkel midagi, kuna selles pole veel ühtegi punkti. -->
-<!-- - Loo sarnaselt talude kihile ka teede vektorkiht. Teede märkimiseks tuleb valida aga *Geometry type* **Line**. -->
-
-
-<!-- **Märgi ajalooliselt kaardilt talud, mida tänapäeval enam pole.** -->
-
-<!-- Talud on ajaloolisel topograafilisel kaardil tähistatud kandilise viirutatud alaga, millel asub must punkt, mis tähistab hoonet. Lülita ajaloolist kaarti sisse-välja, et näha, milliseid talusid tänapäevasel põhikaardils pole. -->
-
-<!-- - Kliki kihtide paneelil kihil *Vorbuse_talud* ning vajuta üleval tööriista ribal kollasele pliiatsile (või *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali kolme punktiga ikoon *Add features*. Nüüd saad kaardile punkte märkida. -->
-<!-- - Kliki topograafilisel kaardil talu peal. Avanenud aknas jäta *id* lahter nii nagu see on, aga kirjuta *nimi* juurde võimalusel talu nimi. -->
-<!-- - Kui kõik talud on märgitud, siis salvesta muudatused. Selleks vajuta tööriistaribal kollase pliiatsi kõrval disketina kujutatud salvestamise ikoonile (*Save Layer*). Lülita editing välja vajutades kollasel pliiatsil. -->
-<!-- - Nüüd peaksid näha olema kõikide talude peal värvilised punktid. -->
-<!--   - Muuda punktide värvi ja suurust, et need paremini välja paistaksid ning lisa nimesilt. -->
-<!--   - Selleks, et sildid paremini välja paistaksid võid *Labels* menüüs *Background* alt teha linnukese *Draw background* ees ning *Placement* alt määrata *Distance: 2*. Selle tulemusena on siltide tekst taust valge ning sildid asuvad punktist 2 mm kaugusel. -->
-
-<!-- Märgi kihiga *vorbuse_teed* uurimispiirkonna piires need teed, mida tänapäevasel kaardil enam pole. Ära märgi väga väikseid või neid teid, mille asukoht või kurvilisus on ainult pisut muutunud. -->
-
-<!-- - Teede märkimine on sisuliselt sama nagu punktide märkimine. Kolme punktiga ikooni asemel on tööriistaribal samas kohas aga lihtsalt nurgelise joonega ikoon. -->
-<!-- - Märgi tee punktide abil joonena. Joone lõpetamiseks tee parempoolne klikk ja anna sellele järjekorra number. Joone paksust saab muuta samal viisil nagu punktil. -->
-<!-- - Kui oled talud ja teed märkinud, siis lülita ajalooline topokaart välja. Nüüd on endised talud ja teed näha tänapäevasel põhikaardil. -->
-<!-- - Ekspordi kaart samamoodi nagu harjutuses 2. -->
-
-<!-- ## Kaartide kujundamine ja eksportimine -->
-
-<!-- Kui kaardiaknas on loodud sobiv lahendus, siis ekspordi see kaardina. Kaardi tegemiseks: -->
-
-<!-- - Ülevalt vasakult *Project → New Print Layout*. Anna sellele sobiv nimi. -->
-<!-- - Avanenud aknas ülevalt *Add Item → Add Map*. Nüüd joonista akna valgele lehele nelinurk hoides all hiire vasakpoolset klahvi. QGIS-i peaaknas olev kaart kujutatakse sinna. Tee nelinurk sama suureks kui valge taust. -->
-<!-- - Säti kaarti nii et kõik vajalik oleks näha. Selleks vali *Edit → Move Content* või vajuta klaviatuuril C. Liiguta kaarti hiire vasakpoolset klahvi all hoides. Paremal servas *Item properties* alt saab valida kaardi mõõtkava (Scale), et kaarti suuremaks või väiksemaks teha. -->
-<!-- - Lisa kaardile joonmõõtkava. *Add item → Add Scalebar* ning kliki kaardile. Avanenud aknas lihtsalt *OK*. Paremal *Item properties → Segments* saad muuta muuta mõõtkava pikkust. Vali *left 0* ja lisa paremale poole nii palju, kui soovid. *Fixed width* muudab mõõtkava ühe ühiku pikkust. *Style* rippmenüüst saad valida endale meelepärase stiili. -->
-<!-- - Lisa kaardile põhjasuunda tähistav nool. *Add item → Add North Arrow* ning kliki kaardile. Paiguta noole kast kaardi ühte ülemisse nurka. Paremal *Item properties* all kliki *Search directories* ning vali soovi korral mõni muu nool. -->
-<!-- - Lisa kaardile enda nimi ja viide Maa-ametile. *Add Item → Add Label* ning kliki kaardile. Avanenud aknas OK. Paiguta tekkinud kast kaardi ühte nurka. Paremal *Item properties* all kirjuta enda nimi ning vajadusel viide Maa-ameti andmetele. Nt Aluskaart: Maa-amet 2020. -->
-<!-- - Ekspordi kaart kursuse kausta. Üleval servas vasakul *Layout → Export as Image*. Anna sellele mõistlik nimi. Avanenud aknas Save. -->
-<!-- - Ava kaart kaustas ning vaata, kas kõik jäi õigesti. -->
 
 
 # QGISi juhendid ja õpikud
