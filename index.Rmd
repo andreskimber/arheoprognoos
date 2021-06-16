@@ -17,43 +17,9 @@ output:
 
 # Sissejuhatus
 
-Alljärgnevad harjutused annavad ülevaate geoinfosüsteemi (GIS) mõningatest põhilistest funktsioonidest: ruumiandmetega failide avamine, punktide tähistamine, kaardi ja legendi loomine. Harjutused tuleb teha etteantud järjekorras. Kõik vajalikud käsklused on kirjeldatud eraldi punktidena ning ise midagi välja nuputama ei pea. Iga punkt tuleb teha täpselt kirjelduse järgi ning ühtegi punkti ei tohi vahele jätta. Vastasel juhul ei saa järgnevaid asju teha. Kohati võib juhend tunduda liiga detailne, kuid kogemus on näidanud, et sellisel viisil saab esmakordselt QGIS-i kasutades iseseisvalt harjutused kõige paremini tehtud. Kõik ettepanekud juhendi ja harjutuste parendamiseks on teretulnud.
+Juhend annab ülevaate geoinfosüsteemi QGIS mõningatest põhilistest funktsioonidest, mida on vaja kohalike omavalitsuste üldplaneeringute jaoks arheoloogiatundlike alade prognoosimiseks. Kõik ettepanekud juhendi ja harjutuste parendamiseks on teretulnud.
 
 Lae Moodle'isse ülesande *GIS praktikum* juurde harjutuste tulemusena valminud kaardid. **Tähtaeg 12.05.2021 23:59**.
-
-# Tööprotsess
-
-Üldiselt tuleb võtta V: kettalt QGISi põhi vajalikud WMS ühendustega, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale ning kopeerid valla arheoloogiatundlike alade kihi V: kettale.   
-
-1. Tee C: kettale kaust **arheoloogia_prognoos**
-    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS** QGISi projekti põhi **arheotundlikud_alad_alus.qgz**
-    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** andmete kiht **arheoloogia_andmed.gpkg**.
-    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** arheoloogiatundlike alade kihi põhi **arheoloogia_tundlikud_alad.gpkg**. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt **arheoloogia_tundlikud_alad_jarva.gpkg**. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
-2. Ava QGIS, klikkides töölaual **QGIS 3.16** kaustas **QGIS Desktop 3.16.3 with GRASS 7.8.5**
-3. Ava andmete kiht **arheoloogia_andmed.gpkg**.
-    - Lohista see enda C: ketta kaustast QGISi peaaknasse.
-    - Avanenud aknas kliki **Select All** ja tee linnuke **Add layers to a group** ette. Nüüd avanevad kõik kihid.
-4. Too esile vald, millega tegelema hakkad.
-    - Lülita välja kõik andmete kihid. Kihtide aknas **arheoloogia_andmed** peal parempoolne klikk -> **Uncheck and all its children.
-    - Lülita sisse kiht **kov_piirid** -> kihil topeltklikk -> vasakult **Symbology** -> topeltklikk **Uuritav** peal -> **Filter** juures "ONIMI" = 'Järva vald' asenda **Järva** selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'.
-
-```{r kovhighlight, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Käsiloleva valla esile toomine"}
-knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
-```
-
-5. 
-
-
-# Kasutatavad andmed
-
-## Kihid 
-
-
-## WMS kaardid
-
-
-
-# QGISi installimine ja seadistamine
 
 QGISil on alati kaks hetkeversioon: stabiilne *Long term release* ja uusimate võimalustega *Latest release*. Kuna *Latest release* pidevalt uueneb, siis on kursusel lihtsuse huvides kasutusel *Long term release*, milleks hetkel 3.16. Väga suuri erinevusi nende versioonide vahel ei ole. Kel huvi, võib vaadata ka [väljalaske graafikut](https://qgis.org/en/site/getinvolved/development/roadmap.html#release).
 
@@ -62,27 +28,6 @@ IT abi peaks olema kõigile QGISi paigaldanud. Kui ei ole, siis tegeleme sellega
 ```{r qgis_3.1, echo=F, fig.show='hold', fig.align='center', out.width= "100%"}
 knitr::include_graphics(here::here("imgs", "qgis_3.16.png"))
 ```
-
-## Failihaldus ja andmed 
-
-Segaduste vältimiseks soovitan kasutada kaustade strutktuuri, kus käesoleva kursuse kaustas on teil QGISi projekti fail(id) .qgz ja kaks kausta *andmed* ja *kaardid*, kuhu panete vastavalt kõik praktikumis kasutatavad andmed ja valminud kaks kaarti. Võimalike probleemide vältimiseks võiks kursuse kaust olla kohas, kus ei ole täpitähti. Nt *C:/ut/kevad_2021/sj_materiaalne_kultuur/gis_praktikum/*. Muidugi võite andmed panna ka lihtsalt töölauale või Downloads kausta.
-
-Struktuuri näide: 
-
- - C:/.../kursuse_kaust/gis_praktikum
-    - praktikum.qgz
-    - andmed/
-        - omavalitsused.gpkg
-        - kultuurimalestised.csv
-        - jne
-    - kaardid/
-        - harjutus_2_kimber.png
-        - harjutus_3_kimber.jpeg
-        - jne
-        
-<!-- Praktikumis kasutatavad andmed leiate kursuse [Moodle'ist](https://moodle.ut.ee/) selle praktikumi materjalide alt ja ka lingilt [gis_praktikum_andmed](https://drive.google.com/file/d/1C3NTBLMQzlwo4Ql8SDv-BL7QcVCH2zlv/view?usp=sharing). Laadige need alla, pakkige lahti (parempoolne klikk ja *Extract here*) ja asetage kausta *andmed*. -->
-
-<!-- Harjutuste käigus kasutatud haldusjaotuse ruumiandmed on kättesaadavad ka Maa-ameti kodulehelt [geoportaal.maaamet.ee/est/Ruumiandmed-p1.html](https://geoportaal.maaamet.ee/est/Ruumiandmed-p1.html). Maakondade ja omavalitsuste piirid saab allalaadida haldus- asustusjaotuse alalehelt. -->
 
 ## Keele seadistamine 
 
@@ -106,47 +51,82 @@ knitr::include_graphics(here::here("imgs", "default_crs.gif"))
 ```
 
 
-Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken *Layers*. All servas on näitab kursori asukoha koordinaate, mõõtkava, mida saab seal ka muuta, ning paremal nurgas on koordinaatsüsteem, mis peaks praegu olema EPSG:3301, mis tähendabki Eesti 1997. a koordinaatsüsteemi. Üleval servas on menüüd ja kõiksugused tööriistad.  
+Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja ruumiandmete kihid. Vasakul on kihtide aken *Layers*, kus saab kihte välja ja sisse lülitada ning kui on avatud rohkem kui üks kiht, saab hiirega tõstes muuta nende järjekorda. Kihtide järjekord on oluline, kuna alumised kihid ei pruugi pealmiste alt välja paista.
+
+All servas on näitab kursori asukoha koordinaate, mõõtkava, mida saab seal ka muuta, ning paremal nurgas on koordinaatsüsteem, mis peaks praegu olema EPSG:3301, mis tähendabki Eesti 1997. a koordinaatsüsteemi. Üleval servas on menüüd ja kõiksugused tööriistad.
+
+Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui ei suuda kihti enam üles leida.
+
+Sulge QGIS.
 
 
-<!-- # Harjutus 1  -->
+
+# Tööprotsess
+
+Üldiselt tuleb võtta V: kettalt QGISi põhi, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale. Vaatame need koos üle. Seejärel kopeerid valla arheoloogiatundlike alade kihi V: kettale.   
+
+1. Tee C: kettale kaust **arheoloogia_prognoos**
+    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS** QGISi projekti põhi **arheotundlikud_alad_alus.qgz**
+    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** andmete kiht **arheoloogia_andmed.gpkg**.
+    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** arheoloogiatundlike alade kihi põhi **arheotundlikud_alad.gpkg**. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt **arheotundlikud_alad_jarva.gpkg**. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
+2. Ava QGIS, klikkides töölaual **QGIS 3.16** kaustas **QGIS Desktop 3.16.3 with GRASS 7.8.5**
+3. Ava andmete kiht **arheoloogia_andmed.gpkg**.
+    - Lohista see enda C: ketta kaustast QGISi peaaknasse.
+    - Avanenud aknas kliki **Select All** ja tee linnuke **Add layers to a group** ette. Nüüd avanevad kõik kihid.
+4. Too esile vald, millega tegelema hakkad.
+    - Lülita välja kõik andmete kihid. Kihtide aknas **arheoloogia_andmed** peal parempoolne klikk -> **Uncheck and all its children.
+    - Lülita sisse kiht **kov_piirid** -> kihil topeltklikk -> vasakult **Symbology** -> topeltklikk **Uuritav** peal -> **Filter** juures "ONIMI" = 'Järva vald' asenda **Järva** selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'.
+
+```{r kovhighlight, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Käsiloleva valla esile toomine"}
+knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
+```
+
+5. Joonista arheoloogiatundlikud alad.
+    - Liigu kaardil käsiloleva valla juurde ja lülita sisse kõik kihid. 
+    - Tee kiht valla nimega kiht **arheotundlikud_alad_jarva.gpkg** redigeeritavaks. Kliki kihtide paneelil selllel kihil ning vajuta üleval tööriista ribal kollasele pliiatsile (või ülevalt menüüst *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali rohelise laiguga ikoon *Add polygon feature*. Nüüd saad kaardile alasid märkida.
+    - Joonistamiseks kliki kaardiaknas. Ala lõpetamiseks tee parempoolne klikk. Avanenud hüpikaknas vali drop-down menüüst sobivad väärtused.
+    - Salvesta aeg-ajalt kihis tehtud muudatused. Selleks vajuta tööriistaribal kollase pliiatsi kõrval disketina kujutatud salvestamise ikoonile (*Save Layer*). Redigeerimise saad välja lülitada vajutades kollasel pliiatsil.
+6. Kui arvad, et kõik valla arheoloogiatundlikud alad on joonistatud, siis anna teada ja vaatame koos üle. 
+7. Pärast koos üle vaatamist kopeeri valla arheoloogiatundlike alade kiht kausta **V:\ARHEOLOOGIA\15 GIS\data\arheotundlikud_alad_valdadena**. Võid võtta käsile uue valla. 
+
+# Kasutatavad andmed
+
+*Kiht arheoloogia_andmed.gpkg*
+
+Siia on koondatud sisuliselt kõik prognoosimiseks olulised ja meile kättesaadavad andmed. Kihtide atribuuttabelit saab vaadata tehes kihil paremkliki ja *Open Attribute Table*. Seal on kirjas, millised andmed on kihis olemas ja millised on nende atribuudid.
+
+- malestis_kpo_p - Punktiga tähistatud mälestised. Sama, mis Maa-ameti kultuurimälestiste kihil.
+- malestis_kpo_a - Alaga tähistatud mälestised. Sama, mis Maa-ameti kultuurimälestiste kihil.
+- kaitsevoond_kpo - Mälestiste kaitsevööndid. Sama, mis Maa-ameti kultuurimälestiste kihil.
+- malestis_vk_p - Virtuaalkontoris olevad punktiga tähistatud muistised.
+- malestis_vk_a - Virtuaalkontoris olevad alaga tähistatud  muistised.
+- kaitsevoond_vk - Virtuaalkontoris olevate muististe kaitsevööndid
+- kohanimi - Külade kohanime info koos esmamainimise aastaga.*Punkt ei asetse ajaloolise täpselt ajaloolise küla peal, vaid tänapäevase küla ruumikuju keskel*. Kohanimeraamatust ja kohanimeregistrist kokkupandud andmestik. Kui küla esmamainimine tundub olevat liiga hiline, siis vaadake ka punkti info päringuga (QGISis sinine info ikoon) kohanimeraamatu täiskirjet.
+- otsinguteated - detektoristide otsinguteated alates 2019. a mai algusest.
+- otsinguaruanded - detektoristide otsinguaruanded koos otsinguteate infoga alates 2019. a mai algusest.
+kiviaja_asulakohad - koondatud kiviaja asulate andmestik, mille panid kokku Kaarel Sikk, Aivar Kriiska, Kristjan Sander jt. Viide: https://doi.org/10.5281/zenodo.3775415 
+- ave_uued_muistised - 2012-2016 AVEs publitseeritud uued leitud muistised
+- ty_db - TÜ Arheoloogilise ja pärimusliku kohainfo andmebaas. Alade määramisel silmas pidada objekti täpsust. Saab vaadata info nupuga.
+- muististe_liik - abikiht, arheoloogiatundlike alade kihis muististe liikide valimiseks. Võib ignoreerida seda.
 
 
-<!-- Vaata kõigepealt andmeid. Ava Exceli, Notepadi vms programmiga fail madara_prooviaugud.csv. Nagu näha on tegemist tabeliga, kus on välitöödel kaevatud prooviaukude number (nr), koordinaadid (x, y) ja kõrgus maapinnast (z). Selline on tüüpiline arheoloogilistel välitöödel tehtud mõõtmiste fail. Sulge see fail. -->
+*WMS kihid*
 
-<!-- **Ava sama fail QGISis: ** -->
+Ajaloolised
 
-<!-- - *Layer → Add layer → Add delimited text layer* -->
-<!-- - Kliki *File Name* juures sirvimise ikoonil (kolm punkti). Vali kaustast fail *madara_prooviaugud.csv* -->
-<!-- - *File format* juures vali *Custom delimiters* ning tee linnuke *Semicolon* ette. -->
-<!-- - *Record and Fields Options juures* tee linnuke *First record has field names* ette. See on vajalik, et QGIS arvestaks tabeli esimest rida kui tulpade pealkirju. -->
-<!-- - *Geometry definition* vali *Point coordinates*, *X field: x* ja *Y field: y*. Siin määratakse, millises tulbas asuvad vastavalt X ja Y koordinaat. -->
-<!-- - Kas akna all servas *Sample data* juures on andmed kujutatud eraldi tulpades? Kui ei, siis kontrolli, kas oled eelmised sammud õigesti teinud.  -->
-<!-- - All servas *Add → Close*. QGIS-i peaaknas peaksid nüüd nägema prooviaukude asukohti värviliste punktidena. -->
+- Verstakaart
+- Rücker/Schmidt
+- kihelkonnad kuni 1917
+- mõisad 1917
 
-<!-- ```{r madaratabel, echo=F, fig.show='hold', fig.align = 'center', out.width= "120%", fig.cap="Mädara prooviaukude andmestiku avamine. Jälgi, et kõik valikud oleks samamoodi! Faili asukoht muidugi sõltub igaühe arvutist."} -->
-<!-- knitr::include_graphics(here::here("imgs", "madara_punktide_avamine.PNG")) -->
-<!-- ```  -->
+Tänapäevased
 
-<!-- **Kihtide vaatamine ja kaardil liikumine** -->
+- katastriüksused
+- ortofoto
+- hübriid
+- põhikaart reljeefivarjutusega
+- värviline reljeefivarjutus
 
-<!-- Kihtide paneelil *Layers* saab kihte välja ja sisse lülitada ning kui on avatud rohkem kui üks kiht, saab hiirega tõstes muuta nende järjekorda. Kihtide järjekord on oluline, kuna alumised kihid ei pruugi pealmiste alt välja paista. -->
-
-<!-- Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui ei suuda kihti enam üles leida. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit! -->
-
-<!-- Kihtide atribuuttabelit saab vaadata tehes kihil paremkliki ja *Open Attribute Table*. Seal on kirjas, millised andmed on kihis olemas ja millised on nende atribuudid. -->
-
-<!-- Tee prooviauke tähistavad punktid paremini nähtavaks. -->
-
-<!-- - Punktide värvi ja suurust saab muuta tehes kihtide paneelis kihil topeltkliki. Avanenud menüüs valige sobiv ergas värv (*Color*) ja suurus (*Size*). Näiteks punane värv ja suurus 3. -->
-<!-- - Lisa punktidele sildid. Samas menüüs vali vasakult Labels ning seal *No labels* asemel *Single labels*. *Value* alt vali tulp *nr* ja vajuta all paremal *OK*. -->
-<!--   - Selleks, et sildid paremini välja paistaksid võid samas *Labels* menüüs *Background* alt teha linnukese *Draw background* ees ning *Placement* alt määrata *Distance:* 2. Selle tulemusena on siltide teksti taust valge ning sildid asuvad punktist 2 mm kaugusel. -->
-
-
-<!-- **Aluskaardid** -->
-
-<!-- Punktide taustale on ka aluskaarti vaja. Neid saab kasuta QGISis läbi pistikprogrmammide ehk *Plugins* või WMS- ja WFS-teenuste. Vastavalt *web map service* ja *web feature service*. -->
-<!-- WMS-teenuse läbi saab kasutada peaaegu kõiki [Maa-ameti XGISis](https://xgis.maaamet.ee/xgis2/page/app/maainfo) olevaid kihte. Täpsemalt sellest [WMS teenuste lehel](https://geoportaal.maaamet.ee/est/Teenused/WMS-teenused-p65.html). Lisaks saab paljusid muid andmeid kogu maailmast. WMS-teenuse kaarte saab kasutada sisuliselt ainult visualiseerimiseks. Päringuid nende pealt üldiselt teha ei saa. -->
 
 <!-- **Lisa Maa-ameti WMS-teenusest taustaks kaart:** -->
 
@@ -156,9 +136,6 @@ Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja r
 <!-- - Nüüd on peaaknas näha tänapäevane põhikaart koos reljeefiga. Selleks et punktid kaardil paistaksid peab *Layers* paneelil olema kiht madara_prooviaugud kõige ülemine. Kihtide järjekorda saab vahetada hoides vasakpoolset hiire klahvi all. -->
 <!-- - Kaardil on Mädara linnus kõrgema alana prooviaukudest vahetult edelas seal, kus on märgitud kõrgus 45.3. Hetkeseis peaks välja nägema enam-vähem sama alloleva pildiga. -->
 
-<!-- ```{r madaraseis, echo=F, fig.show='hold', fig.align = 'center', out.width= "120%", fig.cap="Mädara prooviaukude aluskaardiga QGISis."} -->
-<!-- knitr::include_graphics(here::here("imgs", "madara_punktid_kaardil.PNG")) -->
-<!-- ```  -->
 
 <!-- ## Kaardi kujundamine ja eksportimine -->
 
@@ -437,25 +414,7 @@ Vaata QGISi kasutajaliidest. Suurde keskel olevasse aknasse ilmuvad kaardid ja r
 <!-- - Ekspordi kaart kursuse kausta. Üleval servas vasakul *Layout → Export as Image*. Anna sellele mõistlik nimi. Avanenud aknas Save. -->
 <!-- - Ava kaart kaustas ning vaata, kas kõik jäi õigesti. -->
 
-<!-- # Kaartide esitamine -->
 
-<!-- Lae Moodle'isse ülesande *GIS praktikum* juurde harjutuste tulemusena valminud kaardid. **Tähtaeg 12.05.2021 23:59** -->
-
-
-
-# QGISi kasutamine
-
-## Kihtide avamine
-
-**Kihtide vaatamine ja kaardil liikumine**
-
-Kihtide paneelil *Layers* saab kihte välja ja sisse lülitada ning kui on avatud rohkem kui üks kiht, saab hiirega tõstes muuta nende järjekorda. Kihtide järjekord on oluline, kuna alumised kihid ei pruugi pealmiste alt välja paista.
-
-Peaaknas saab hiire rullikuga suumida (all servas muutub ka mõõtkava). Hiire vasakpoolset klahvi all hoides ja ka klaviatuuril nooltega saab liikuda. Kihi terve ulatuse nägemiseks tee *Layers* paneelil kihil parempoolne klikk ning vali *Zoom to Layer*. Sellest on abi ka siis, kui ei suuda kihti enam üles leida. Proovi kaardil ringi liikuda ning vaata kõikide kihtide atribuuttabelit!
-
-Kihtide atribuuttabelit saab vaadata tehes kihil paremkliki ja *Open Attribute Table*. Seal on kirjas, millised andmed on kihis olemas ja millised on nende atribuudid.
-
-## Alade joonistamine
 # QGISi juhendid ja õpikud
 
 
