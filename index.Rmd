@@ -23,7 +23,26 @@ Lae Moodle'isse ülesande *GIS praktikum* juurde harjutuste tulemusena valminud 
 
 # Tööprotsess
 
-1. 
+Üldiselt tuleb võtta V: kettalt QGISi põhi vajalikud WMS ühendustega, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale ning kopeerid valla arheoloogiatundlike alade kihi V: kettale.   
+
+1. Tee C: kettale kaust **arheoloogia_prognoos**
+    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS** QGISi projekti põhi **arheotundlikud_alad_alus.qgz**
+    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** andmete kiht **arheoloogia_andmed.gpkg**.
+    - Kopeeri sinna kaustast **V:\ARHEOLOOGIA\15 GIS\data** arheoloogiatundlike alade kihi põhi **arheoloogia_tundlikud_alad.gpkg**. Muuda kihi nime, lisades lõppu selle valla nime, millega hakkad tegelema. Nt **arheoloogia_tundlikud_alad_jarva.gpkg**. Tühiku asemel kasuta alakriipsu ja täpitähtede asemel a, o, y. Tee niimoodi iga vallaga, millega tegeled.
+2. Ava QGIS, klikkides töölaual **QGIS 3.16** kaustas **QGIS Desktop 3.16.3 with GRASS 7.8.5**
+3. Ava andmete kiht **arheoloogia_andmed.gpkg**.
+    - Lohista see enda C: ketta kaustast QGISi peaaknasse.
+    - Avanenud aknas kliki **Select All** ja tee linnuke **Add layers to a group** ette. Nüüd avanevad kõik kihid.
+4. Too esile vald, millega tegelema hakkad.
+    - Lülita välja kõik andmete kihid. Kihtide aknas **arheoloogia_andmed** peal parempoolne klikk -> **Uncheck and all its children.
+    - Lülita sisse kiht **kov_piirid** -> kihil topeltklikk -> vasakult **Symbology** -> topeltklikk **Uuritav** peal -> **Filter** juures "ONIMI" = 'Järva vald' asenda **Järva** selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'.
+
+```{r kovhighlight, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Käsiloleva valla esile toomine"}
+knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
+```
+
+5. 
+
 
 # Kasutatavad andmed
 
@@ -41,7 +60,7 @@ QGISil on alati kaks hetkeversioon: stabiilne *Long term release* ja uusimate v�
 IT abi peaks olema kõigile QGISi paigaldanud. Kui ei ole, siis tegeleme sellega kohe. Kui tahate aga isiklikusse arvutisse seda installida, siis saate QGISi alla laadida [ametlikult kodulehelt](https://qgis.org/en/site/forusers/download.html), valides enda arvuti operatsioonisüsteemile sobiva variandi. Windowsi jaoks *QGIS Standalone Installer Version 3.16 (64 bit)* ja macOSi jaoks *QGIS macOS Installer Version 3.10*. Kui allalaadimine on lõppenud, ava fail ning installi see nagu iga teine programm. Kasutada vaikimisi valikuid.
 
 ```{r qgis_3.1, echo=F, fig.show='hold', fig.align='center', out.width= "100%"}
-# knitr::include_graphics(here::here("imgs", "qgis_3.16.png"))
+knitr::include_graphics(here::here("imgs", "qgis_3.16.png"))
 ```
 
 ## Failihaldus ja andmed 
