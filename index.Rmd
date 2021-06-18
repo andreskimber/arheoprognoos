@@ -60,7 +60,9 @@ Sulge QGIS.
 
 # Tööprotsess
 
-Üldiselt tuleb võtta V: kettalt QGISi põhi, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale. Vaatame need koos üle. Seejärel kopeerid valla arheoloogiatundlike alade kihi V: kettale.   
+Üldiselt tuleb võtta V: kettalt QGISi põhi, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale. Vaatame need koos üle. Seejärel kopeerid valla arheoloogiatundlike alade kihi V: kettale. 
+
+Valdade valimiseks vaata [ÜP talgute valdade valik](https://docs.google.com/spreadsheets/d/11N1ij9pyh8gu9w_DUtcB1jBNQPiCrPYg7iX_WgdC4eo/edit?usp=sharing).
 
 1. Tee C: kettale kaust *arheoloogia_prognoos*
     - Kui pole juurdepääsu C: kettale, siis tee töölauale lihtsalt otsetee, mille asukohaks kirjuta lihtsalt *C:*
@@ -93,7 +95,8 @@ knitr::include_graphics(here::here("imgs", "selection_tools.PNG"))
 ```
 
 6. Kui arvad, et kõik valla arheoloogiatundlikud alad on joonistatud, siis anna teada ja vaatame koos üle. 
-7. Salvesta kihis muudatused ja QGISi projekt ning sulge QGIS. **Pärast QGISi sulgemist,** kopeeri (ära lõika) valla arheoloogiatundlike alade kiht kausta *V:/ARHEOLOOGIA/15 GIS/data/arheotundlikud_alad_valdadena*. Võid võtta käsile uue valla.
+7. Salvesta kihis muudatused ja QGISi projekt ning sulge QGIS. **Pärast QGISi sulgemist,** kopeeri (ära lõika) valla arheoloogiatundlike alade kiht kausta *V:/ARHEOLOOGIA/15 GIS/data/arheotundlikud_alad_valdadena*.
+8. Võid võtta käsile uue valla. Vaata tabelit [ÜP talgute valdade valik](https://docs.google.com/spreadsheets/d/11N1ij9pyh8gu9w_DUtcB1jBNQPiCrPYg7iX_WgdC4eo/edit?usp=sharing).
 
 # Kasutatavad andmed
 
