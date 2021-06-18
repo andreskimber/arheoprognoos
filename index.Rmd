@@ -93,7 +93,7 @@ knitr::include_graphics(here::here("imgs", "selection_tools.PNG"))
 ```
 
 6. Kui arvad, et kõik valla arheoloogiatundlikud alad on joonistatud, siis anna teada ja vaatame koos üle. 
-7. Pärast koos üle vaatamist kopeeri valla arheoloogiatundlike alade kiht kausta *V:/ARHEOLOOGIA/15 GIS/data/arheotundlikud_alad_valdadena*. Võid võtta käsile uue valla.
+7. Salvesta kihis muudatused ja QGISi projekt ning sulge QGIS. **Pärast QGISi sulgemist,** kopeeri (ära lõika) valla arheoloogiatundlike alade kiht kausta *V:/ARHEOLOOGIA/15 GIS/data/arheotundlikud_alad_valdadena*. Võid võtta käsile uue valla.
 
 # Kasutatavad andmed
 
