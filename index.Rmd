@@ -81,7 +81,8 @@ knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
 
 5. Joonista arheoloogiatundlikud alad.
     - Liigu kaardil käsiloleva valla juurde ja lülita sisse kõik kihid. 
-    - Tee kiht valla nimega kiht *arheotundlikud_alad_jarva.gpkg* redigeeritavaks. Kliki kihtide paneelil selllel kihil ning vajuta üleval tööriista ribal kollasele pliiatsile (või ülevalt menüüst *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali rohelise laiguga ikoon *Add polygon feature*. Nüüd saad kaardile alasid märkida.
+    - Lohista valla nimega arheoloogiatundlike alade kiht (minul nt *arheotundlikud_alad_jarva.gpkg*) QGISi peaaknasse
+    - Tee see kiht redigeeritavaks. Kliki kihtide paneelil selllel kihil ning vajuta üleval tööriista ribal kollasele pliiatsile (või ülevalt menüüst *Layer → Toggle editing*). Pliiatsi kõrval olevad ikoonid muutuvad värviliseks. Vali rohelise laiguga ikoon *Add polygon feature*. Nüüd saad kaardile alasid märkida.
     - Joonistamiseks kliki kaardiaknas. Ala lõpetamiseks tee parempoolne klikk. Avanenud hüpikaknas vali drop-down menüüst sobivad väärtused.
     - Salvesta aeg-ajalt kihis tehtud muudatused. Selleks vajuta tööriistaribal kollase pliiatsi kõrval disketina kujutatud salvestamise ikoonile (*Save Layer*). Redigeerimise saad välja lülitada vajutades kollasel pliiatsil.
     - Joonistatud kuju muutmiseks vali joonistamise ikooni kõrval *Vertex tool*. 
@@ -100,18 +101,25 @@ knitr::include_graphics(here::here("imgs", "selection_tools.PNG"))
 
 Siia on koondatud sisuliselt kõik prognoosimiseks olulised ja meile kättesaadavad andmed. Kihtide atribuuttabelit saab vaadata tehes kihil paremkliki ja *Open Attribute Table*. Seal on kirjas, millised andmed on kihis olemas ja millised on nende atribuudid.
 
+Mälestised ja detektorism
+
 - malestis_kpo_p - Punktiga tähistatud mälestised. Sama, mis Maa-ameti kultuurimälestiste kihil.
 - malestis_kpo_a - Alaga tähistatud mälestised. Sama, mis Maa-ameti kultuurimälestiste kihil.
 - kaitsevoond_kpo - Mälestiste kaitsevööndid. Sama, mis Maa-ameti kultuurimälestiste kihil.
 - malestis_vk_p - Virtuaalkontoris olevad punktiga tähistatud muistised.
 - malestis_vk_a - Virtuaalkontoris olevad alaga tähistatud  muistised.
 - kaitsevoond_vk - Virtuaalkontoris olevate muististe kaitsevööndid
-- kohanimi - Külade kohanime info koos esmamainimise aastaga.*Punkt ei asetse ajaloolise täpselt ajaloolise küla peal, vaid tänapäevase küla ruumikuju keskel*. Kohanimeraamatust ja kohanimeregistrist kokkupandud andmestik. Kui küla esmamainimine tundub olevat liiga hiline, siis vaadake ka punkti info päringuga (QGISis sinine info ikoon) kohanimeraamatu täiskirjet.
 - otsinguteated - detektoristide otsinguteated alates 2019. a mai algusest.
 - otsinguaruanded - detektoristide otsinguaruanded koos otsinguteate infoga alates 2019. a mai algusest.
-kiviaja_asulakohad - koondatud kiviaja asulate andmestik, mille panid kokku Kaarel Sikk, Aivar Kriiska, Kristjan Sander jt. Viide: https://doi.org/10.5281/zenodo.3775415 
+
+Muud andmed
+
+- ty_db - TÜ Arheoloogilise ja pärimusliku kohainfo andmebaas. Peamine andmestik, millest alade märkimine lähtub.Alade määramisel silmas pidada objekti täpsust ja liigikindlust, mida näitab iga objekti juures sildil.
+    - Vajadusel võib sildid välja lülitada. Kihil topeltklikk -> vasakul menüüs *Labels* -> rippmenüüst *Single Labels* asemel vali *No Labels*
+- kohanimi - Külade kohanime info koos esmamainimise aastaga.*Punkt ei asetse ajaloolise täpselt ajaloolise küla peal, vaid tänapäevase küla ruumikuju keskel*. Kohanimeraamatust ja kohanimeregistrist kokkupandud andmestik. Kui küla esmamainimine tundub olevat liiga hiline, siis vaadake ka punkti info päringuga (QGISis sinine info ikoon) kohanimeraamatu täiskirjet.
+- kiviaja_asulakohad - koondatud kiviaja asulate andmestik, mille panid kokku Kaarel Sikk, Aivar Kriiska, Kristjan Sander jt. Viide: https://doi.org/10.5281/zenodo.3775415 
 - ave_uued_muistised - 2012-2016 AVEs publitseeritud uued leitud muistised
-- ty_db - TÜ Arheoloogilise ja pärimusliku kohainfo andmebaas. Alade määramisel silmas pidada objekti täpsust. Saab vaadata info nupuga.
+- arheotundlik_ala_yld - minu varem märgitud arheoloogiatundlikud alad. Võib olla kasulik 
 - muististe_liik - abikiht, arheoloogiatundlike alade kihis muististe liikide valimiseks. Võib ignoreerida seda.
 
 
@@ -121,8 +129,8 @@ WMS ehk Web Map Service on teenus, mille kaudu pääseb paljudele kaardikihtidel
 
 Ajaloolised
 
-- Verstakaart - legende näeb [Maa-ameti ajalooliste kaartide lehelt](https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html)
-- Rücker/Schmidt - 19. saj keskpaiku koostatud väikese mõõtkavaline kaart, mis katab kogu eesti
+- Rücker/Schmidt - 19. saj keskpaiku koostatud väikese mõõtkavaline kaart, mis katab kogu eesti. Peamine kaart, millest lähtume.
+- Verstakaart - legende näeb [Maa-ameti ajalooliste kaartide lehelt](https://geoportaal.maaamet.ee/est/Kaardirakendused/Ajaloolised-kaardid/Ajalooliste-kaartide-rakenduse-kirjeldus-p157.html). Hea täpsustus Rücker/Schmidt kaardile.
 - kihelkonnad kuni 1917
 - mõisad 1917
 
