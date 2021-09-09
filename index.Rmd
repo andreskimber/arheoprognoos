@@ -1,7 +1,7 @@
 ---
 title: "Arheoloogiatundlike alade prognoosimise juhend"
-# subtitle: "" # "Andmeteadus ja digihumanitaaria (HVEE.00.016)"
-author: "Andres Kimber" # , Maarja-Liisa Pilvik
+subtitle: "Viimati täiendatud 09.09.2021"
+author: "Andres Kimber" 
 date: "09.-10.09.2021"
 output:
     html_document:
@@ -14,8 +14,11 @@ output:
         fig_caption: true
 ---
 
-
 # Sissejuhatus
+
+```{r yp_kaart, echo=F, fig.show='hold', fig.align='center', out.width= "100%"}
+knitr::include_graphics(here::here("imgs", "yldplaneeringud_sept_2021.png"))
+```
 
 Juhend annab ülevaate geoinfosüsteemi QGIS mõningatest põhilistest funktsioonidest, mida on vaja kohalike omavalitsuste üldplaneeringute jaoks arheoloogiatundlike alade prognoosimiseks. Kõik ettepanekud juhendi parandamiseks on teretulnud.
 
@@ -75,7 +78,7 @@ Valdade valimiseks vaata [ÜP talgute valdade valik](https://docs.google.com/spr
     - Avanenud aknas kliki *Select All* ja tee linnuke *Add layers to a group* ette. Nüüd avanevad kõik kihid.
 4. Too esile vald, millega tegelema hakkad.
     - Lülita välja kõik andmete kihid. Kihtide aknas *arheoloogia_andmed* peal parempoolne klikk -> *Uncheck and all its children.
-    - Lülita sisse kiht *kov_piirid* -> kihil topeltklikk -> vasakult *Symbology* -> topeltklikk *Uuritav* peal -> *Filter* juures "ONIMI" = 'Järva vald' asenda *Järva* selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'.
+    - Lülita sisse kiht *kov_piirid* -> kihil topeltklikk -> vasakult *Symbology* -> topeltklikk *Uuritav* peal -> *Filter* juures "ONIMI" = 'Järva vald' asenda *Järva* selle vallaga, millega parasjagu tegeled. Nt "ONIMI" = 'Tõrva vald'. Siin kirjuta valla nimi õigesti (st täpitähtedega).
 
 ```{r kovhighlight, echo=F, fig.show='hold', fig.align='center', out.width= "100%", fig.cap="Käsiloleva valla esile toomine"}
 knitr::include_graphics(here::here("imgs", "kov_highlight.png"))
