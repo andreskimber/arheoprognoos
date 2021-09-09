@@ -2,7 +2,7 @@
 title: "Arheoloogiatundlike alade prognoosimise juhend"
 # subtitle: "" # "Andmeteadus ja digihumanitaaria (HVEE.00.016)"
 author: "Andres Kimber" # , Maarja-Liisa Pilvik
-date: "16.-18.06.2021"
+date: "09.-10.09.2021"
 output:
     html_document:
         df_print: paged
@@ -62,7 +62,7 @@ Sulge QGIS.
 
 Üldiselt tuleb võtta V: kettalt QGISi põhi, andmete kiht ja kiht, kuhu hakkad alasid märkima. Avad need QGISis. Joonistad käsiloleva valla piires tundlikud alad peale. Vaatame need koos üle. Seejärel kopeerid valla arheoloogiatundlike alade kihi V: kettale. 
 
-Valdade valimiseks vaata [ÜP talgute valdade valik](https://docs.google.com/spreadsheets/d/11N1ij9pyh8gu9w_DUtcB1jBNQPiCrPYg7iX_WgdC4eo/edit?usp=sharing).
+Valdade valimiseks vaata [ÜP talgute valdade valik](https://docs.google.com/spreadsheets/d/1Lo8_am6_7_gMwZhKIgxY31zL99TOESUYMPI_fX8sB3s/edit?usp=sharing).
 
 1. Tee C: kettale kaust *arheoloogia_prognoos*
     - Kui pole juurdepääsu C: kettale, siis tee töölauale lihtsalt otsetee, mille asukohaks kirjuta lihtsalt *C:*
@@ -124,6 +124,8 @@ Muud andmed
 - ave_uued_muistised - 2012-2016 AVEs publitseeritud uued leitud muistised
 - arheotundlik_ala_yld - minu varem märgitud arheoloogiatundlikud alad. Võib olla kasulik 
 - muististe_liik - abikiht, arheoloogiatundlike alade kihis muististe liikide valimiseks. Võib ignoreerida seda.
+- potentsiaalsed_muistised - valdavalt reljeefikaardilt ja mullakaardilt märgitud tõenäolised põllujäänuste asukohad
+- arheotundlik_ala_yld, arheotundlikud_alad_1, arheotundlikud_alad_2 - varem tehtud prognoosid. kihid kombineerimata hetkel. varsti kombineerin. 
 
 
 **WMS kihid**
